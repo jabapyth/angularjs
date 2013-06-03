@@ -3,7 +3,7 @@
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
-(function(window, document, undefined) {
+var startAngular = function(window, document, undefined) {
 'use strict';
 
 ////////////////////////////////////
@@ -16872,5 +16872,13 @@ var styleDirective = valueFn({
     angularInit(document, bootstrap);
   });
 
-})(window, document);
-angular.element(document).find('head').append('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\\:form{display:block;}</style>');
+};
+
+var initialize = function () {
+  startAngular(window, document);
+  window.angular.element(document).find('head').append('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\\:form{display:block;}</style>');
+  return window.angular.noConflict();
+};
+
+module.exports = intialize();
+
