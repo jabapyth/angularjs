@@ -16880,5 +16880,5 @@ var initialize = function () {
   return window.angular.noConflict();
 };
 
-module.exports = intialize();
+module.exports = initialize();
 
