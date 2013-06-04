@@ -16880,5 +16880,5 @@ var initialize = function () {
   return window.angular;
 };
 
-module.exports = window.angular; // initialize();
+module.exports = initialize();
 
