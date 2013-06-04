@@ -16877,8 +16877,8 @@ var styleDirective = valueFn({
 var initialize = function () {
   startAngular(window, document);
   window.angular.element(document).find('head').append('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\\:form{display:block;}</style>');
-  return window.angular.noConflict();
+  return window.angular;
 };
 
-module.exports = initialize();
+module.exports = window.angular; // initialize();
 
