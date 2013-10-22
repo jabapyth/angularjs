@@ -8815,8 +8815,10 @@ function $RootScopeProvider(){
                       logMsg = (isFunction(watch.exp))
                           ? 'fn: ' + (watch.exp.name || watch.exp.toString())
                           : watch.exp;
-                      logMsg += '; newVal: ' + toJson(value) + '; oldVal: ' + toJson(last);
-                      watchLog[logIdx].push(logMsg);
+                      try {
+                        logMsg += '; newVal: ' + toJson(value) + '; oldVal: ' + toJson(last);
+                        watchLog[logIdx].push(logMsg);
+                      } catch (e) {}
                     }
                   }
                 } catch (e) {
@@ -15403,8 +15405,9 @@ var ngRepeatDirective = ['$parse', '$animator', function($parse, $animator) {
                if (block && block.element) lastBlockMap[block.id] = block;
              });
              // This is a duplicate and we need to throw an error
-             throw new Error('Duplicates in a repeater are not allowed. Repeater: ' + expression +
-                 ' key: ' + trackById);
+             // return;
+             // throw new Error('Duplicates in a repeater are not allowed. Repeater: ' + expression +
+             //    ' key: ' + trackById);
            } else {
              // new never before seen block
              nextBlockOrder[index] = { id: trackById };
